@@ -12,7 +12,6 @@ export const LoadingBeforeText = () => {
     async function loading() {
       await sleep(3500)
       setLoading(false)
-      await sleep(3500)
       router.push('/cars')
     }
     loading()
