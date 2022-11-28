@@ -1,0 +1,12 @@
+#loading {
+  animation: Loading 1.5s linear infinite;
+}
+
+@keyframes Loading {
+  50% {
+    transform: translateX(67%)
+  }
+  100% {
+    transform: translateX(0)
+  }
+}
