@@ -1,5 +1,9 @@
+'use client'
 import './globals.css'
 import { Inter } from '@next/font/google'
+import { Provider } from 'urql'
+import { client } from '../pages/lib/urql'
+import { SearchProvider } from '../pages/context/searchContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +19,13 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body className='bg-dark-red'>{children}</body>
+      <body className='bg-dark-red'>
+        <Provider value={client}>
+          <SearchProvider>
+            {children}
+          </SearchProvider>
+        </Provider>
+      </body>
     </html>
   )
 }

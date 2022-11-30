@@ -4,6 +4,9 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  images: {
+    domains: ['img.gta5-mods.com']
+  }
 }
 
 module.exports = nextConfig

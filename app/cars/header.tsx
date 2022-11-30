@@ -1,14 +1,16 @@
 'use client'
 import Link from 'next/link'
 import Image from "next/image"
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { motion } from 'framer-motion'
 import logo from '../../public/logo.png'
 import { MagnifyingGlass, List, X } from 'phosphor-react'
+import { SearchContext, } from '../../pages/context/searchContext'
 
 export default function Header() {
   const [menu, setMenu] = useState(false)
   const [contato, setContato] = useState(false)
+  const { search, setSearch } = useContext(SearchContext)
 
   return (
     <div className='flex justify-between w-full h-24 shadow-2xl bg-just-black'>
@@ -25,16 +27,16 @@ export default function Header() {
 
       </div>
 
-      <div className={`flex items-center relative justify-between w-full max-md:flex-col max-md:h-full max-md:z-auto max-md:absolute max-md:top-0 max-md:bg-just-black transition-all duration-500 ease-in ${menu ? 'top-20' : 'max-md:top-[-100%]'} `}>
+      <div className={`flex items-center relative justify-between w-full max-md:flex-col max-md:h-full max-md:z-30 max-md:absolute max-md:top-0 max-md:bg-just-black transition-all duration-500 ease-in ${menu ? 'top-20' : 'max-md:top-[-100%]'} `}>
         <main className='flex ml-40 max-md:absolute max-md:ml-0 max-md:bottom-1/2'>
 
-          <ul className='flex items-center font-xl max-md:flex-col text-just-white font-bold text-lg'>
+          <ul className='flex items-center  max-md:flex-col text-just-white font-bold text-lg'>
 
-            <motion.li whileTap={{ x: [0, 100, -100, 0] }} transition={{ type: 'keyframes' }} className='ml-6 mr-24 w-32 hover:text-dark-red max-md:border-dark-red max-md:mr-6 max-md:m-4 '>
+            <motion.li whileTap={{ x: [0, 100, -100, 0] }} transition={{ type: 'keyframes' }} className='ml-6 mr-24 w-32 font-2xl hover:text-dark-red max-md:border-dark-red max-md:mr-6 max-md:m-4 '>
               <Link href='/cars/about'>Quem somos</Link>
             </motion.li>
 
-            <motion.li whileTap={{ x: [0, 100, -100, 0] }} transition={{ type: 'keyframes' }} onClick={() => setContato(!contato)} className='ml-6 mr-12 cursor-pointer hover:text-dark-red max-md:border-dark-red max-md:ml-0 max-md:m-4'>
+            <motion.li whileTap={{ x: [0, 100, -100, 0] }} transition={{ type: 'keyframes' }} onClick={() => setContato(!contato)} className='ml-6 mr-12 cursor-pointer font-2xl hover:text-dark-red max-md:border-dark-red max-md:ml-0 max-md:m-4'>
               <h1>Contato</h1>
             </motion.li>
 
@@ -45,9 +47,9 @@ export default function Header() {
           </ul>
 
 
-          <form className='flex justify-between mr-5 max-md:absolute max-md:bottom-[95%] max-md:mr-0'>
+          <form onSubmit={(e) => e.preventDefault()} className='flex justify-between mr-5 max-md:absolute max-md:bottom-[95%] max-md:mr-0'>
 
-            <input className='bg-just-white  border border-just-black text-black h-8 mr-2 rounded-md focus-within:ring-2 ring-dark-red outline-none ' placeholder='Ex: Supra' />
+            <input className='bg-just-white  border border-just-black text-black h-8 mr-2 rounded-md focus-within:ring-2 ring-dark-red outline-none' value={search} onChange={event => setSearch(event.currentTarget.value)} placeholder='Ex: Supra' />
 
             <button type='submit' className='flex items-center justify-center bg-just-white border border-just-black w-12 h-8 rounded-md'>
               <MagnifyingGlass size={20} />

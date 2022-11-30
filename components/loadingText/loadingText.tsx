@@ -19,7 +19,7 @@ export const LoadingText: React.FC<TextTypes> = ({ first, second, third }: TextT
 
       <h1>{third}</h1>
       <Typist.Delay ms={500} />
-      <Typist.Backspace count={7} />
+      <Typist.Backspace count={20} />
     </div>
   </Typist>
 )
