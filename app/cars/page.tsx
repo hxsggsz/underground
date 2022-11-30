@@ -38,8 +38,8 @@ export default function Cars() {
           border border-just-black"
               width={410}
               height={150}
-              src={cards?.url}
-              alt={cards?.name}
+              src={cards.url}
+              alt={cards.name}
             />
 
             <Card.Text>

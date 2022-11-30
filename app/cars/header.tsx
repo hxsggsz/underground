@@ -1,9 +1,9 @@
 'use client'
 import Link from 'next/link'
 import Image from "next/image"
-import { useContext, useState } from 'react'
 import { motion } from 'framer-motion'
 import logo from '../../public/logo.png'
+import { useContext, useState } from 'react'
 import { MagnifyingGlass, List, X } from 'phosphor-react'
 import { SearchContext, } from '../../pages/context/searchContext'
 
@@ -49,7 +49,7 @@ export default function Header() {
 
           <form onSubmit={(e) => e.preventDefault()} className='flex justify-between mr-5 max-md:absolute max-md:bottom-[95%] max-md:mr-0'>
 
-            <input className='bg-just-white  border border-just-black text-black h-8 mr-2 rounded-md focus-within:ring-2 ring-dark-red outline-none' value={search} onChange={event => setSearch(event.currentTarget.value)} placeholder='Ex: Supra' />
+            <input className='bg-just-white  border border-just-black text-black h-8 mr-2 rounded-md focus-within:ring-2 ring-dark-red outline-none' value={search} onChange={event => setSearch(event.currentTarget.value)} placeholder='Ex: nissan' />
 
             <button type='submit' className='flex items-center justify-center bg-just-white border border-just-black w-12 h-8 rounded-md'>
               <MagnifyingGlass size={20} />
