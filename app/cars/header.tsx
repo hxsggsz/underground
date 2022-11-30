@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import logo from '../../public/logo.png'
 import { useContext, useState } from 'react'
 import { MagnifyingGlass, List, X } from 'phosphor-react'
-import { SearchContext, } from '../../pages/context/searchContext'
+import { SearchContext, } from '../../context/searchContext'
 
 export default function Header() {
   const [menu, setMenu] = useState(false)

@@ -1,5 +1,4 @@
 'use client';
-import { ReactNode } from "react";
 import Typist from "react-typist-component"
 
 interface TextProps {

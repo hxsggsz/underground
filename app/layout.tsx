@@ -2,8 +2,8 @@
 import './globals.css'
 import { Inter } from '@next/font/google'
 import { Provider } from 'urql'
-import { client } from '../pages/lib/urql'
-import { SearchProvider } from '../pages/context/searchContext'
+import { client } from '../lib/urql'
+import SearchProvider from '../context/searchProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 

@@ -8,7 +8,7 @@ import { Text } from "../../components/text/text";
 import { Modal } from "../../components/modal/modal";
 import { AnimatePresence } from 'framer-motion';
 import { useItemsQuery } from "../../graphql/generated/graphql";
-import { SearchContext } from "../../pages/context/searchContext";
+import { SearchContext } from "../../context/searchContext";
 
 export default function Cars() {
   const [sure, setSure] = useState(false)
@@ -63,7 +63,7 @@ export default function Cars() {
             </Card.Text>
           </Card.Root>
         ))}
-      
+
       {sure && (
         <Modal.Root>
 

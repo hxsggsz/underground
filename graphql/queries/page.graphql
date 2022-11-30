@@ -1,5 +1,5 @@
 query items {
-  itemss {
+  itemss (last: 27) {
     name
     price
     slug

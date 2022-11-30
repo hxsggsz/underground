@@ -16,7 +16,7 @@ export const LoadingBeforeText = () => {
       router.push('/cars')
     }
     loading()
-  }, [])
+  }, [router])
   return (
     <>
       {loading ? <Loading /> : <LoadingText first="Bem vindo ao " second="Underground" third="地下へようこそ" />}
