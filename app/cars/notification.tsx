@@ -11,7 +11,7 @@ interface NotifyRoot { //framer-motion conflitou com o HTMLAttributes<HTMLDivEle
 }
 
 const NotifyRoot: React.FC<NotifyRoot> = ({ children }: NotifyRoot) => (
-    <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 300 }} className=' fixed bottom-5 right-[3%] rounded-md bg-just-grey'>{children}</motion.div>
+  <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 300 }} className=' fixed bottom-5 right-[3%] rounded-md bg-just-grey'>{children}</motion.div>
 )
 
 const NotifyTitle: React.FC<NotifyTypes> = ({ children, ...props }: NotifyTypes) => (
@@ -19,7 +19,7 @@ const NotifyTitle: React.FC<NotifyTypes> = ({ children, ...props }: NotifyTypes)
 )
 
 const NotifyBody: React.FC<NotifyTypes> = ({ children, ...props }: NotifyTypes) => (
-  <div className='p-4 font-semibold' {...props}>{children}</div>
+  <div className='p-4 text-just-black font-semibold' {...props}>{children}</div>
 )
 
 export const Notify = {

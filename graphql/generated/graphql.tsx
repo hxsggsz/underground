@@ -3544,7 +3544,7 @@ export enum _SystemDateTimeFieldVariation {
 export type ItemsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ItemsQuery = { __typename?: 'Query', itemss: Array<{ __typename?: 'Items', name?: string | any, price?: string | null, slug?: string | null, url?: string | any }> };
+export type ItemsQuery = { __typename?: 'Query', itemss: Array<{ __typename?: 'Items', name?: string | any, price?: string | any, slug?: string | null, url?: string | any }> };
 
 
 export const ItemsDocument = gql`

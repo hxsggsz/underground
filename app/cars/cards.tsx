@@ -15,12 +15,12 @@ interface ImageTypes {
 
 const CardRoot: React.FC<CardTypes> = ({ children }: CardTypes) => (
   <motion.main
-    whileHover={{ scale: 1.3 }}
+    whileHover={{ scale: 1.2 }}
     whileInView={{ x: [0, 2, -2, 0] }}
     viewport={{ once: true, amount: 0.5 }}
     className='flex 
    flex-col 
-   m-8 
+   m-4 
    rounded-lg 
    justify-center
    bg-just-black 

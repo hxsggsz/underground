@@ -4,6 +4,7 @@ import { Inter } from '@next/font/google'
 import { Provider } from 'urql'
 import { client } from '../lib/urql'
 import SearchProvider from '../context/searchProvider'
+import { CardProvider } from '../context/cardContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,7 +23,9 @@ export default function RootLayout({
       <body className='bg-dark-red'>
         <Provider value={client}>
           <SearchProvider>
-            {children}
+            <CardProvider>
+              {children}
+            </CardProvider>
           </SearchProvider>
         </Provider>
       </body>
