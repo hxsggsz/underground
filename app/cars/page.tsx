@@ -9,7 +9,7 @@ import { CardContext } from "../../context/cardContext";
 export default function Cars() {
 
   const { search } = useContext(SearchContext)
-  const state = useContext(CardContext)
+  const { SetInStorage } = useContext(CardContext)
 
   const [{ data }] = useItemsQuery()
   //tipagem gerada pelo codegen 🤓
@@ -22,7 +22,6 @@ export default function Cars() {
      items-center 
      justify-center 
      flex-wrap">
-      <div className='h-80'>s</div>
       {data?.itemss
         .filter(cars => {
           const nameNormalized = cars?.name?.toLowerCase()
@@ -45,9 +44,7 @@ export default function Cars() {
               <p className="p-2">{cards.price}</p>
 
               <div
-                onClick={() => {
-                  state.SetInStorage(cards.name, cards.url, cards.price)
-                }}
+                onClick={() => { SetInStorage(cards.name, cards.url, cards.price) }}
                 className="ml-2 
                 p-2 
                 flex 
