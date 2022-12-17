@@ -20,12 +20,17 @@ export const CardContext = createContext({} as CardContext)
 export const CardProvider = ({ children }: ProviderProps) => {
 
   const getList = () => {
-    if (typeof window !== 'undefined') {
-      let local = localStorage.getItem('cards')
-      if (local) {
-        return JSON.parse(local)
-      }
+    /**
+     *next roda isso pelo servidor, e como o localStorage só existe no lado do client
+     *ele acusa erro na hora do build, esse if é pra verificar se a propiedade 'window'
+     *existe, se existir é porque está no lado do client e executa o localStorage normalmente 
+     */
+    // if (typeof window !== 'undefined') {
+    let local = localStorage.getItem('cards')
+    if (local) {
+      return JSON.parse(local)
     }
+    // }  
     return []
   }
 

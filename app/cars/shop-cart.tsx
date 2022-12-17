@@ -16,10 +16,10 @@ export default function ShopCart() {
 
   return (
     <>
-      <ul className='absolute p-5 pr-10  bg-just-black '>
+      <ul className='absolute p-5 pr-10  bg-just-black max-md:w-full max-md:pt-40 max-md:h-full'>
 
         {carrinho.map((item: any, idx) => (
-          <li className='flex gap-4 py-4 border-y border-slate-700' key={idx}>
+          <li className='flex gap-4 py-6 border-y border-slate-700 text-just-white ' key={idx}>
 
             <Image alt={item[0]} width={150} height={150} src={item[1]} />
 
@@ -34,7 +34,7 @@ export default function ShopCart() {
           </li>
 
         ))}
-        {carrinho.length == 0 ? <div>carrinho vazio </div> :
+        {carrinho.length == 0 ? <div className='text-just-white flex justify-center items-center'><h1>carrinho vazio</h1></div> :
           <div
             onClick={() => { setSure(!sure) }}
             className="ml-2 
