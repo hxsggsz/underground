@@ -25,19 +25,17 @@ export const CardProvider = ({ children }: ProviderProps) => {
      *ele acusa erro na hora do build, esse if é pra verificar se a propiedade 'window'
      *existe, se existir é porque está no lado do client e executa o localStorage normalmente 
      */
-    // if (typeof window !== 'undefined') {
-    let local = localStorage.getItem('cards')
-    if (local) {
-      return JSON.parse(local)
+    if (typeof window !== 'undefined') {
+      let local = localStorage.getItem('cards')
+      if (local) {
+        return JSON.parse(local)
+      }
     }
-    // }  
     return []
   }
 
   const [carrinho, setCarrinho] = useState<StateTypes[]>(getList())
-  /*
-  criar uma função que recebe como parametros: name, pricee url e fazer com que essa função adicione no localstorage o componente
-  */
+
   const SetInStorage = (name: string, url: string, price: string) => {
 
     let folders = []
