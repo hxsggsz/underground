@@ -12,10 +12,10 @@ import { MagnifyingGlass, List, X, ShoppingCart } from 'phosphor-react'
 
 export default function Header() {
   const [menu, setMenu] = useState(false)
-  const [contato, setContato] = useState(false)
   const [showCart, setShowCart] = useState(false)
-  const { search, setSearch } = useContext(SearchContext)
+
   const { carrinho } = useContext(CardContext)
+  const { search, setSearch } = useContext(SearchContext)
 
   const router = useRouter()
 
@@ -39,7 +39,7 @@ export default function Header() {
 
       <div className={`flex justify-between transition-all duration-500 ease-in max-md:flex-col max-md:bg-just-black max-md:w-full max-md:h-auto  max-md:fixed max-md:justify-center max-md:items-center ${menu ? 'max-md:top-0' : 'max-md:top-[-400%]'}`}>
 
-        <ul className='flex items-center gap-x-10 mr-4 text-just-white font-bold text-lg max-md:py-80 max-md:flex-col'>
+        <ul onClick={() => setMenu(false)} className='flex items-center gap-x-10 mr-4 text-just-white font-bold text-lg max-md:py-80 max-md:flex-col'>
 
           <li>
 
@@ -49,8 +49,9 @@ export default function Header() {
 
             <ShoppingCart onClick={() => setShowCart(!showCart)} className='cursor-pointer hover:text-dark-red mt-7 max-md:opacity-0' size={30} />
 
+            {/* versão mobile */}
             <Link href='/cars/shop-page'>
-              <ShoppingCart onClick={() => setMenu(!menu)} className='cursor-pointer hover:text-dark-red opacity-0 max-md:opacity-100' size={30} />
+              <ShoppingCart className='cursor-pointer hover:text-dark-red opacity-0 max-md:mr-10 max-md:opacity-100' size={30} />
             </Link>
 
             {showCart && (
@@ -62,27 +63,20 @@ export default function Header() {
             )}
           </li>
 
+          <motion.li whileTap={{ x: [0, 100, -100, 0] }} transition={{ type: 'keyframes' }} className='cursor-pointer font-2xl mr-[2.5rem] hover:text-dark-red'>
+
+            <Link href='/cars/contact'>Contato</Link>
+
+          </motion.li>
+
           <motion.li whileTap={{ x: [0, 100, -100, 0] }} transition={{ type: 'keyframes' }} className='font-2xl hover:text-dark-red w-36 max-md:border-dark-red'>
             <Link href='/cars/about'>Quem somos</Link>
           </motion.li>
 
-          <motion.li whileTap={{ x: [0, 100, -100, 0] }} transition={{ type: 'keyframes' }} onClick={() => setContato(!contato)} className='cursor-pointer font-2xl mr-[2.5rem] hover:text-dark-red'>
-            <h1>Contato</h1>
 
-            {contato && (
-              <motion.div animate={{ x: [0, -50, 50, 0] }} transition={{ type: 'keyframes' }} className=' absolute bottom-[-50%] left-[45%] mt-20 rounded-md text-center border-2 border-just-black text-dark-red bg-light-red max-w-[180px] shadow-2xl'>
-                <div>
-                  VOCÊ NÃO ENTRA EM CONTATO, NÓS ENTRAMOS
-                </div>
-              </motion.div>
-            )}
-          </motion.li>
+          <form onSubmit={(e) => e.preventDefault()} className='flex justify-between items-center gap-x-2'>
 
-
-
-          <form onSubmit={(e) => e.preventDefault()} className='flex justify-between items-center mr-5'>
-
-            <input className='bg-just-white  border border-just-black text-black h-8 gap-6 rounded-md focus-within:ring-2 ring-dark-red outline-none' value={search} onChange={event => setSearch(event.currentTarget.value)} placeholder='Ex: nissan' />
+            <input className='bg-just-white  border border-just-black text-black h-8 rounded-md focus-within:ring-2 ring-dark-red outline-none' value={search} onChange={event => setSearch(event.currentTarget.value)} placeholder='Ex: nissan' />
 
             <button type='submit' className='flex items-center justify-center bg-just-white border border-just-black w-12 h-8 rounded-md'>
               <MagnifyingGlass className='text-just-black' size={20} />
