@@ -5,9 +5,13 @@ import { useContext, useState } from 'react'
 import { useItemsQuery } from "../../graphql/generated/graphql";
 import { SearchContext } from "../../context/searchContext";
 import { CardContext } from "../../context/cardContext";
+import { Notify } from "./notification";
+import { AnimatePresence } from "framer-motion";
+import { Text } from "../../components/text/text";
+import { sleep } from "../../lib/sleep";
 
 export default function Cars() {
-
+  const [shopNotify, setShopNotify] = useState(false)
   const { search } = useContext(SearchContext)
   const { SetInStorage } = useContext(CardContext)
 
@@ -44,7 +48,12 @@ export default function Cars() {
               <p className="p-2">{cards.price}</p>
 
               <div
-                onClick={() => { SetInStorage(cards.name, cards.url, cards.price) }}
+                onClick={async () => {
+                  SetInStorage(cards.name, cards.url, cards.price)
+                  setShopNotify(true)
+                  await sleep(7000)
+                  setShopNotify(false)
+                }}
                 className="ml-2 
                 p-2 
                 flex 
@@ -62,7 +71,15 @@ export default function Cars() {
         ))}
 
 
+      <AnimatePresence> {/* <== garante que o componente vai ser animado apos ser removido da DOM */}
+        {shopNotify && (
+          <Notify.Root>
+            <Notify.Title><Text first='Underground🔰' second="地下へようこそ🔰" /> </Notify.Title>
 
+            <Notify.Body>Carro adicionado ao carrinho, olhe o menu🚗</Notify.Body>
+          </Notify.Root>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

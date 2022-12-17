@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import { Loading } from "../components/loading.tsx/loading"
 import { LoadingText } from "../components/loadingText/loadingText"
 import { useRouter } from "next/navigation"
-export const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
+import { sleep } from "../lib/sleep";
 
 export const LoadingBeforeText = () => {
   const router = useRouter()

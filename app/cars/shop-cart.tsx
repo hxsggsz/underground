@@ -7,16 +7,19 @@ import { AnimatePresence } from "framer-motion"
 import { X } from "phosphor-react"
 import { Notify } from "./notification"
 import { useRouter } from "next/navigation"
+import { sleep } from "../../lib/sleep"
+import SpinLoading from "../../components/spin-loading/spin-loading"
 
 export default function ShopCart() {
   const router = useRouter()
   const [sure, setSure] = useState(false)
   const [notify, setNotify] = useState(false)
+  const [loading, setLoading] = useState(false)
   const { carrinho } = useContext(CardContext)
 
   return (
     <>
-      <ul className='absolute p-5 pr-10  bg-just-black max-md:w-full max-md:pt-40 max-md:h-full'>
+      <ul className='absolute p-5 pr-10 bg-just-black max-md:w-full max-md:pb-16 max-md:pt-40 '>
 
         {carrinho.map((item: any, idx) => (
           <li className='flex gap-4 py-6 border-y border-slate-700 text-just-white ' key={idx}>
@@ -28,7 +31,6 @@ export default function ShopCart() {
               <p>{item[0]}</p>
               <span>{item[2]}</span>
 
-
             </div>
 
           </li>
@@ -37,10 +39,18 @@ export default function ShopCart() {
         {carrinho.length == 0 ? <div className='text-just-white flex justify-center items-center'><h1>carrinho vazio</h1></div> :
           <div
             onClick={() => { setSure(!sure) }}
-            className="ml-2 
-              p-2 
-              flex 
-              items-center 
+            className=" 
+              p-4 
+              flex
+              w-full
+              fixed
+              rounded-2
+              bottom-0
+              left-0
+              font-2xl
+              items-center
+              border-2
+              border-just-black 
               justify-center 
               cursor-pointer 
               bg-just-white 
@@ -69,14 +79,22 @@ export default function ShopCart() {
             <Modal.Content className="p-8">
               <div className='flex w-auto'>
                 <div
-                  onClick={() => {
+                  onClick={async () => {
+                    //loading no botao depois de apertar no sim
+                    setLoading(true)
+                    await sleep(3000)
+                    setLoading(false)
+
                     setNotify(!notify)
                     setSure(!sure)
+
+
+                    // //redirecionar a home no mobile
+                    router.push('/cars')
                     localStorage.removeItem('cards')
-                    setTimeout(() => {
-                      setNotify(false)
-                    }, 7000)
-                    router.refresh()
+                    await sleep(7000)
+                    setNotify(false)
+
                   }}
 
                   className="ml-2 
@@ -89,7 +107,7 @@ export default function ShopCart() {
                 bg-just-white 
                 rounded-md 
                 text-just-black">
-                  sim
+                  {loading ? <SpinLoading /> : 'sim'}
                 </div>
                 <div
                   onClick={() => {
