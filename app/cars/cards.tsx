@@ -19,7 +19,8 @@ const CardRoot: React.FC<CardTypes> = ({ children }: CardTypes) => (
     whileInView={{ x: [0, 2, -2, 0] }}
     viewport={{ once: true, amount: 0.5 }}
     className='flex 
-   flex-col 
+   flex-col
+   w-[310px] 
    m-4 
    rounded-lg 
    justify-center
@@ -33,16 +34,14 @@ const CardImage: React.FC<ImageTypes> = ({ image, alt, src }: ImageTypes) => (
   <Image
     className='rounded-t-lg 
    border border-just-black'
-    width={400}
-    height={150}
     src={image}
     alt={alt} />
 )
 
 const CardText: React.FC<CardTypes> = ({ children }: CardTypes) => (
-  <div className='flex flex-col items-center justify-center text-center m-4 font-semibold text-xl text-just-white'>
+  <p className='flex flex-col whitespace-normal items-center justify-center text-center m-4 font-semibold text-xl text-just-white'>
     {children}
-  </div>
+  </p>
 )
 
 export const Card = {

@@ -20,7 +20,7 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body className='bg-dark-red'>
+      <body className='bg-dark-red scrollbar-thin scrollbar-corner-just-black scrollbar-track-just-black scrollbar-thumb-just-white'>
         <Provider value={client}>
           <SearchProvider>
             <CardProvider>

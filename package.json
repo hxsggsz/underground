@@ -31,6 +31,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-typist-component": "^1.0.5",
+    "tailwind-scrollbar": "^2.0.1",
     "tailwindcss": "^3.2.4",
     "typescript": "4.9.3",
     "urql": "^3.0.3"

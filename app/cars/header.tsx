@@ -19,7 +19,7 @@ export default function Header() {
   return (
     <div className={`flex items-center fixed w-full h-24 z-50 shadow-2xl bg-just-black max-md:z-30 `}>
 
-      <div className='z-50 w-[100%] flex items-center mx-2 justify-between'>
+      <div className='z-50 w-[100%] flex items-center mx-6 justify-between'>
         <div onClick={() => setMenu(false)}>
           <Link data-testid='link' href='/cars'>
             <Image width={100} height={100} src={logo} alt='logo' />

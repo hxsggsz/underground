@@ -37,8 +37,8 @@ export default function Cars() {
             <Image
               className="rounded-t-lg 
           border border-just-black"
-              width={410}
-              height={150}
+              width={310}
+              height={100}
               src={cards.url}
               alt={cards.name}
             />

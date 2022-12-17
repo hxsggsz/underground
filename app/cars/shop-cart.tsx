@@ -18,13 +18,13 @@ export default function ShopCart() {
   const { carrinho } = useContext(CardContext)
 
   return (
-    <>
-      <ul className='absolute p-5 pr-10 bg-just-black max-md:w-full max-md:pb-16 max-md:pt-40 '>
+    <div className='absolute top-[100%] max-md:top-[10%] max-md:w-full max-md:h-full max-md:bg-just-black'>
+      <ul className='w-80 h-80 overflow-hidden overflow-y-auto scrollbar-thin scrollbar-corner-just-black scrollbar-track-just-black scrollbar-thumb-just-white max-md:overflow-y-hidden  p-5  pr-10 bg-just-black max-md:bg-dark-red max-md:w-full max-md:h-full max-md:pb-24 max-md:pt-12 '>
 
         {carrinho.map((item: any, idx) => (
-          <li className='flex gap-4 py-6 border-y border-slate-700 text-just-white ' key={idx}>
+          <li className='flex gap-4 py-6 max-md:pb-20 border-y border-just-white text-just-white ' key={idx}>
 
-            <Image alt={item[0]} width={150} height={150} src={item[1]} />
+            <Image className="rounded-md" alt={item[0]} width={150} height={150} src={item[1]} />
 
             <div className='text-center justify-center flex-column'>
 
@@ -42,12 +42,11 @@ export default function ShopCart() {
             className=" 
               p-4 
               flex
-              w-full
-              fixed
-              rounded-2
-              bottom-0
-              left-0
+              max-md:fixed
+              max-md:bottom-0
+              max-md:left-0
               font-2xl
+              max-md:w-full
               items-center
               border-2
               border-just-black 
@@ -88,8 +87,8 @@ export default function ShopCart() {
                     setNotify(!notify)
                     setSure(!sure)
 
-
-                    // //redirecionar a home no mobile
+                    router.refresh()
+                    //redirecionar a home no mobile
                     router.push('/cars')
                     localStorage.removeItem('cards')
                     await sleep(7000)
@@ -140,6 +139,6 @@ export default function ShopCart() {
           </Notify.Root>
         )}
       </AnimatePresence>
-    </>
+    </div>
   )
 }
