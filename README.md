@@ -1,34 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Underground
 
-## Getting Started
+##
 
-First, run the development server:
+### projeto de estudo e-commerce com React e Typescript utilizando o framework Next com a nova estrutura de pastas 'app'.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+##
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### quais tecnologias foram utilizadas nesse projeto?
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#### React, Next13, Typescript
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### Estilização
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+##
 
-## Learn More
+#### Tailwind
+#### Framer Motion para as animações do projeto
+#### phosphor react para os icones
 
-To learn more about Next.js, take a look at the following resources:
+##
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Dados utilizado no projeto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+##
 
-## Deploy on Vercel
+#### API Graphql feita com o GraphCMS
+#### URQL para realizar o 'fetch' da API
+#### CodeGen para cuidar da tipagem necessaria da API no Frontend
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+##
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Testes
+
+##
+
+#### jest
+#### testing library react
+#### testing library jest dom
